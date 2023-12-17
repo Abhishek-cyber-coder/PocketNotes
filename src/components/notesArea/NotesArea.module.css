@@ -1,0 +1,75 @@
+.notesArea {
+  width: 100%;
+  height: 100vh;
+  background-color: #dae5f5;
+}
+
+.topGroupHead {
+  font-family: var(--roboto-font);
+  font-weight: 500;
+  font-size: 1.3rem;
+  display: flex;
+  background-color: #001f8b;
+  position: fixed;
+  top: 0;
+  gap: 1.2rem;
+  width: 100%;
+  height: 90px;
+  align-items: center;
+}
+
+.textContainers {
+  background-color: #dae5f5;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 20%;
+  height: 100vh;
+}
+
+.centerHeadings {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.centerHeadings img {
+  width: 100%;
+}
+
+.heading {
+  font-family: var(--roboto-font);
+  font-weight: 700;
+  letter-spacing: 1px;
+  font-size: 2.8rem;
+}
+
+.paraForNotesArea {
+  font-family: var(--roboto-font);
+  font-weight: 500;
+  font-size: 1.2rem;
+  color: #292929;
+  letter-spacing: 1px;
+}
+
+.encryptionTxt {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 1rem;
+}
+
+.encryptionTxt img {
+  height: 21px;
+}
+
+.encryptionTxt p {
+  font-family: var(--roboto-font);
+  font-weight: 400;
+  font-size: 1.2rem;
+  color: #292929;
+  letter-spacing: 1px;
+}

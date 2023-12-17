@@ -1,0 +1,49 @@
+.sideBar {
+  width: 35%;
+  height: 100vh;
+  /* overflow-y: auto; */
+}
+
+.heading {
+  font-family: var(--roboto-font);
+  font-weight: 500;
+  top: 0;
+  position: sticky;
+  display: flex;
+  height: 6.25rem;
+  font-size: 1.875rem;
+  z-index: 1;
+  justify-content: center;
+  align-items: center;
+}
+
+.groupArea {
+  height: 38rem;
+  overflow-y: auto;
+}
+
+.addGroup {
+  font-family: var(--roboto-font);
+  font-weight: 500;
+  background-color: #16008b;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 70px;
+  position: fixed;
+  bottom: 15px;
+  left: 18%;
+  cursor: pointer;
+}
+
+.unavailableDiv {
+  margin-left: 10px;
+  font-family: var(--roboto-font);
+  font-weight: 500;
+  font-size: 1.5rem;
+  color: #9a9a9a;
+}

@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+  font-family: var(--roboto-font);
+  font-weight: 500;
+  font-size: 1.3rem;
+  height: 80px;
+
+  border-radius: 1rem;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+.container:hover {
+  transform: scale(1.1);
+  width: 95%;
+  background: #2f2f2f2b;
+}
