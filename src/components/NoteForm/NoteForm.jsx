@@ -1,12 +1,14 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import styles from "./NoteForm.module.css";
 import MyContext from "../contextApi/MyContext";
+import { getDateInDDMMYYYY, getTimeInAMPM } from "../../utils/helper";
 
 function NoteForm({ groupSelected }) {
   const { setNotes } = useContext(MyContext);
   const [newNote, setNewNote] = useState("");
   const [note, setNote] = useState();
   const [btnActive, setBtnActive] = useState(false);
+
   const textAreaRef = useRef(null);
 
   const handleText = (e) => {
@@ -21,8 +23,8 @@ function NoteForm({ groupSelected }) {
     if (btnActive) {
       setNote({
         data: newNote,
-        currDate: "10 Mar 2023",
-        currTime: "10:10 AM",
+        currDate: getDateInDDMMYYYY(),
+        currTime: getTimeInAMPM(),
         group: groupSelected,
       });
 
