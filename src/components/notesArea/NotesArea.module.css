@@ -10,16 +10,20 @@
   font-size: 1.3rem;
   display: flex;
   background-color: #001f8b;
-  position: fixed;
-  top: 0;
+
   gap: 1.2rem;
   width: 100%;
-  height: 90px;
+  height: 13%;
   align-items: center;
 }
 
 .textContainers {
-  background-color: #dae5f5;
+  overflow-y: auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 50%;
 }
 
 .container {

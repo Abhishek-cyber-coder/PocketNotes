@@ -1,17 +1,21 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import styles from "./NotesArea.module.css";
-import notesAreaBg from "../../assets/images/textAreaBG.png";
-import lockIcon from "../../assets/icons/lockIcon.svg";
 import MyContext from "../contextApi/MyContext";
 import GroupIcon from "../GroupIcon/GroupIcon";
+import NoteForm from "../NoteForm/NoteForm";
+import NoteBox from "../NoteBox/NoteBox";
+import notesAreaBg from "../../assets/images/textAreaBG.png";
+import lockIcon from "../../assets/icons/lockIcon.svg";
 import { getInitials } from "../../utils/helper";
-function NotesArea() {
-  const { selectedGroup, isGroupSelected, setIsGroupSelected } =
-    useContext(MyContext);
-  const groups = JSON.parse(localStorage.getItem("groupNames") || "[]");
 
+function NotesArea() {
+  const { notes, selectedGroup, isGroupSelected, setIsGroupSelected, groups } =
+    useContext(MyContext);
   const [selectedGroupObj, setSelectedGroupObj] = useState({});
   const [initial, setInitial] = useState("");
+  const [notesAvailable, setNotesAvailable] = useState(true);
+
+  const scrollContainerRef = useRef(null);
 
   useEffect(() => {
     setIsGroupSelected(false);
@@ -33,9 +37,15 @@ function NotesArea() {
     setInitial(val);
   }, [selectedGroupObj, setSelectedGroupObj]);
 
+  useEffect(() => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollTop =
+        scrollContainerRef.current.scrollHeight;
+    }
+  }, [selectedGroup, notes]);
+
   return (
     <div className={styles.notesArea}>
-      {/* Baad me true ki jgh isGroupSelected likhna hai */}
       {isGroupSelected ? (
         <>
           <div className={styles.topGroupHead}>
@@ -46,9 +56,10 @@ function NotesArea() {
               textColor="white"
             />
           </div>
-          <div className={styles.textContainers}>
-            <div className={styles.textBox}></div>
+          <div ref={scrollContainerRef} className={styles.textContainers}>
+            <NoteBox groupSelected={selectedGroup} notes={notes} />
           </div>
+          <NoteForm groupSelected={selectedGroup} />
         </>
       ) : (
         <div className={styles.container}>

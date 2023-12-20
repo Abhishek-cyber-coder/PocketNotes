@@ -28,7 +28,6 @@ function Sidebar({ openModal }) {
     if (passedRef.current) {
       let secondChildText = passedRef.current.children[1].innerText;
       setSelectedGroup(secondChildText);
-      console.log(passedRef.current);
     }
   };
 
