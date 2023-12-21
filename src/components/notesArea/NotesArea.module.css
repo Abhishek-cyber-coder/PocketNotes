@@ -118,6 +118,6 @@
   }
 
   .textContainers {
-    height: 55%;
+    height: calc(100% - (13% + 31.5%));
   }
 }
