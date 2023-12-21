@@ -49,7 +49,8 @@
 
 @media screen and (max-width: 500px) {
   .container {
-    height: calc(100% - (13% + 55%));
+    /* height: calc(100% - (13% + 55%)); */
+    height: 32%;
   }
 
   .container > textarea {
