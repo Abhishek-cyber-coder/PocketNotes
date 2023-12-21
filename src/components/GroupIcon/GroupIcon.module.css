@@ -8,3 +8,10 @@
   justify-content: center;
   margin-left: 5%;
 }
+
+@media screen and (max-width: 500px) {
+  .icon {
+    height: 55px;
+    min-width: 55px;
+  }
+}

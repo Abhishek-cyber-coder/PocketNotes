@@ -10,17 +10,25 @@ function GroupItem({
   isActive,
   activeGroupName,
 }) {
-  const { isGroupSelected, setIsGroupSelected } = useContext(MyContext);
+  const {
+    isGroupSelected,
+    setIsGroupSelected,
+    setClickInMobileView,
+    screenWidth,
+  } = useContext(MyContext);
   const parentRef = useRef(null);
+
+  const handleClickOnGroupItem = () => {
+    setClickInMobileView(screenWidth <= 500 ? true : false);
+    activeGroupName(groupName);
+    setIsGroupSelected(true);
+    clickedFunc(parentRef);
+  };
   return (
     <div
       style={{ backgroundColor: isActive ? "#2f2f2f2b" : "" }}
       ref={parentRef}
-      onClick={() => {
-        activeGroupName(groupName);
-        setIsGroupSelected(true);
-        clickedFunc(parentRef);
-      }}
+      onClick={handleClickOnGroupItem}
       className={styles.container}
     >
       <GroupIcon bgColor={iconColor} initial={initials} grpName={groupName} />

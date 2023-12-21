@@ -6,7 +6,7 @@ import MyContext from "../contextApi/MyContext";
 
 function Sidebar({ openModal }) {
   const [isGroupAvailable, setIsGroupAvailable] = useState();
-  const { groups, setSelectedGroup, setIsGroupSelected } =
+  const { groups, setSelectedGroup, setIsGroupSelected, clickInMobileView } =
     useContext(MyContext);
   const [activeGrp, setActiveGrp] = useState("");
   const groupData = groups;
@@ -37,7 +37,10 @@ function Sidebar({ openModal }) {
 
   return (
     <>
-      <div className={styles.sideBar}>
+      <div
+        style={{ display: clickInMobileView ? "none" : "block" }}
+        className={styles.sideBar}
+      >
         <div className={styles.heading}>Pocket Notes</div>
         <div className={styles.groupArea}>
           {isGroupAvailable ? (

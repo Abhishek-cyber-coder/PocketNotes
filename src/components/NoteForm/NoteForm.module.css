@@ -29,8 +29,42 @@
   font-size: 1.5rem;
 }
 
+.container > textarea::-webkit-scrollbar {
+  border-radius: 10px;
+  background: #d9d9d9;
+  width: 0.5rem;
+}
+
+.container > textarea::-webkit-scrollbar-thumb {
+  background: white;
+  border-radius: 5px;
+  border: 1px solid #d9d9d9;
+}
+
 .container > svg {
   position: absolute;
   bottom: 17%;
   right: 8%;
+}
+
+@media screen and (max-width: 500px) {
+  .container {
+    height: calc(100% - (13% + 55%));
+  }
+
+  .container > textarea {
+    height: 70%;
+    padding: 0.5rem 3rem 0 1rem;
+    font-size: 1.1rem;
+  }
+
+  .container > svg {
+    bottom: 24%;
+    right: 8%;
+    height: 25px;
+  }
+
+  .container > textarea::placeholder {
+    font-size: 1.1rem;
+  }
 }

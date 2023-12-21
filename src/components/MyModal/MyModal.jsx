@@ -99,17 +99,19 @@ function MyModal({ closeModal, groups, setGroups }) {
             })}
           </p>
         </form>
-        <button
-          disabled={disable}
-          onClick={closeModalBox}
-          className={
-            error || disable
-              ? styles.createGrpBtn
-              : `${styles.createGrpBtn} ${styles.active}`
-          }
-        >
-          Create
-        </button>
+        <div className={styles.createBtnContainer}>
+          <button
+            disabled={disable}
+            onClick={closeModalBox}
+            className={
+              error || disable
+                ? styles.createGrpBtn
+                : `${styles.createGrpBtn} ${styles.active}`
+            }
+          >
+            Create
+          </button>
+        </div>
       </div>
     </>
   );

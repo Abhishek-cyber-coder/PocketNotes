@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./GroupIcon.module.css";
+
 function GroupIcon({ bgColor, initial, grpName, textColor }) {
   return (
     <>

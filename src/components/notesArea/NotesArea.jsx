@@ -7,10 +7,20 @@ import NoteBox from "../NoteBox/NoteBox";
 import notesAreaBg from "../../assets/images/textAreaBG.png";
 import lockIcon from "../../assets/icons/lockIcon.svg";
 import { getInitials } from "../../utils/helper";
+import leftDirArrow from "../../assets/icons/leftDirArrow.svg";
 
 function NotesArea() {
-  const { notes, selectedGroup, isGroupSelected, setIsGroupSelected, groups } =
-    useContext(MyContext);
+  const {
+    notes,
+    selectedGroup,
+    isGroupSelected,
+    setIsGroupSelected,
+    groups,
+    screenWidth,
+    setScreenWidth,
+    clickInMobileView,
+    setClickInMobileView,
+  } = useContext(MyContext);
   const [selectedGroupObj, setSelectedGroupObj] = useState({});
   const [initial, setInitial] = useState("");
   const [notesAvailable, setNotesAvailable] = useState(true);
@@ -19,6 +29,18 @@ function NotesArea() {
 
   useEffect(() => {
     setIsGroupSelected(false);
+  }, []);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
   useEffect(() => {
@@ -45,10 +67,26 @@ function NotesArea() {
   }, [selectedGroup, notes]);
 
   return (
-    <div className={styles.notesArea}>
+    <div
+      style={{
+        display: screenWidth <= 500 && !clickInMobileView ? "none" : "block",
+      }}
+      className={styles.notesArea}
+    >
       {isGroupSelected ? (
         <>
           <div className={styles.topGroupHead}>
+            {screenWidth <= 500 ? (
+              <img
+                onClick={() => {
+                  setClickInMobileView(false);
+                }}
+                src={leftDirArrow}
+              />
+            ) : (
+              <></>
+            )}
+
             <GroupIcon
               bgColor={selectedGroupObj.iconColor}
               initial={initial}

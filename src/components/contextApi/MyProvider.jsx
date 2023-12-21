@@ -5,6 +5,8 @@ function Provider({ children }) {
   const [isGroupSelected, setIsGroupSelected] = useState(false);
   const [groups, setGroups] = useState([]);
   const [notes, setNotes] = useState([]);
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  const [clickInMobileView, setClickInMobileView] = useState(false);
   useEffect(() => {
     setGroups(JSON.parse(localStorage.getItem("groupNames") || "[]"));
     setNotes(JSON.parse(localStorage.getItem("notes") || "[]"));
@@ -23,6 +25,10 @@ function Provider({ children }) {
         setSelectedGroup,
         isGroupSelected,
         setIsGroupSelected,
+        screenWidth,
+        setScreenWidth,
+        clickInMobileView,
+        setClickInMobileView,
       }}
     >
       {children}

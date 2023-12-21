@@ -17,6 +17,11 @@
   align-items: center;
 }
 
+.topGroupHead img {
+  margin-left: 1rem;
+  width: 20px;
+}
+
 .textContainers {
   overflow-y: auto;
 
@@ -24,6 +29,18 @@
   flex-direction: column;
   align-items: center;
   height: 50%;
+}
+
+.textContainers::-webkit-scrollbar {
+  border-radius: 5px;
+  background: #000000a1;
+  width: 0.5rem;
+}
+
+.textContainers::-webkit-scrollbar-thumb {
+  background: white;
+  border-radius: 5px;
+  border: 1px solid #000000a1;
 }
 
 .container {
@@ -42,7 +59,8 @@
   gap: 1rem;
 }
 .centerHeadings img {
-  width: 100%;
+  max-width: 100%;
+  min-width: 30%;
 }
 
 .heading {
@@ -76,4 +94,30 @@
   font-size: 1.2rem;
   color: #292929;
   letter-spacing: 1px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .heading {
+    font-size: 1.8rem;
+  }
+
+  .paraForNotesArea,
+  .encryptionTxt p {
+    font-size: 1rem;
+  }
+
+  .encryptionTxt img {
+    height: 17px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .topGroupHead {
+    font-size: 1.2rem;
+    gap: 1rem;
+  }
+
+  .textContainers {
+    height: 55%;
+  }
 }

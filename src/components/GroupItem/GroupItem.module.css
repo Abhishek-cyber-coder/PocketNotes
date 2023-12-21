@@ -10,10 +10,18 @@
 
   border-radius: 1rem;
   margin-bottom: 5px;
+  margin-right: 10px;
   cursor: pointer;
+  overflow-wrap: break-word;
 }
 .container:hover {
   transform: scale(1.1);
   width: 95%;
   background: #2f2f2f2b;
+}
+
+@media screen and (max-width: 500px) {
+  .container {
+    font-size: 1.1rem;
+  }
 }
